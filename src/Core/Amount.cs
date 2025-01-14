@@ -1,6 +1,6 @@
-﻿using System.Globalization;
+﻿namespace BankAsPlatform;
 
-namespace BankAsPlatform;
+using System.Globalization;
 
 public readonly record struct Amount
 {
