@@ -22,10 +22,8 @@ public readonly record struct Amount
             throw new ArgumentOutOfRangeException(nameof(value), "Amount must be between 0 and 10^18.");
         }
 
-        // Always treat zero as positive
         value = Math.Abs(value);
 
-        // Round to 5 fractional digits
         value = decimal.Round(value, FractionalDigits, MidpointRounding.AwayFromZero);
 
         return new Amount(value);
