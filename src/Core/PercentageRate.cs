@@ -33,29 +33,24 @@ public readonly struct PercentageRate
             throw new ArgumentOutOfRangeException(nameof(value), "The number of fractional digits must not exceed 10.");
         }
 
-        // Always round to the correct number of fractional digits
         Value = decimal.Round(value, MaxFractionalDigits, MidpointRounding.AwayFromZero);
     }
 
-    // Factory method to create a PercentageRate instance from a decimal value
     public static PercentageRate FromDecimal(decimal value)
     {
         return new PercentageRate(value);
     }
 
-    // Override ToString() method to display the value in a string format
     public override string ToString()
     {
         return Value.ToString("0.####################", CultureInfo.InvariantCulture);
     }
 
-    // Implicit conversion to decimal (useful for calculations)
     public static implicit operator decimal(PercentageRate rate)
     {
         return rate.Value;
     }
 
-    // Example of how you might use the value (i.e., to calculate percentage of another value)
     public decimal Calculate(decimal baseValue)
     {
         return baseValue * Value / 100;
