@@ -1,0 +1,39 @@
+<Project>
+
+  <!-- Common properties -->
+  <PropertyGroup>
+    <!--Target Framework version.-->
+    <TargetFramework>net9.0</TargetFramework>
+
+    <!--Setting this to true enables the usage of the latest version of C# language features.-->
+    <AcceleratBuilnInVisualStudio>true</AcceleratBuilnInVisualStudio>
+
+    <!--Setting this to true disables the automatic transitive project references feature.-->
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+
+    <!-- Enable the last version of C# -->
+    <LangVersion>latest</LangVersion>
+
+    <!-- Enable implict usings -->
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Treat Warnings As Errors -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!-- Disable the Analyzers in Release configuration -->
+    <RunAnalyzers Condition="'$(Configuration)' == 'Release'">false</RunAnalyzers>
+  </PropertyGroup>
+
+  <!-- Common NuGet packages -->
+  <ItemGroup>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.12.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.5.0.109200">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
