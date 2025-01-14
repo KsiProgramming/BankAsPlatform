@@ -15,7 +15,7 @@ public readonly record struct Amount
         this.Value = value;
     }
 
-    public Amount Create(decimal value)
+    public static Amount Create(decimal value)
     {
         if (value < MinAmount || value >= (decimal)Math.Pow(10, MaxTotalDigits))
         {
